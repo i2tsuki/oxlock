@@ -152,9 +152,9 @@ pub fn main() {
             }
         }
     }
-    let time = NaiveTime::from_hms(0, 0, 0) + sum;
-    println!("sum:            {:2}h{:2}m", time.hour(), time.minute());
-    println!("goal:           {:2}h00m", map.len() * 8);
+    let datetime = NaiveDateTime::new(NaiveDate::from_ymd(1970,1,1), NaiveTime::from_hms(0, 0, 0)) + sum;
+    println!("sum:            {:2}d{:2}h{:2}m", datetime.day()-1, datetime.hour(), datetime.minute());
+    println!("goal:           {:2}d{:2}h 0m", map.len() * 8 / 24, map.len() * 8 % 24);
 }
 
 fn capture_name<'t>(re: &'t Regex, text: &'t str, name: &str) -> Option<&'t str> {
