@@ -106,6 +106,8 @@ pub fn main() {
 
                     // Validate duration
                     if duration != (end_datetime - start_datetime) {
+                        println!("start_datetime: {}", start_datetime);
+                        println!("end_datetime: {}", end_datetime);
                         let _result = writeln!(&mut std::io::stderr(),
                                                "invalid duration: duration: {}",
                                                duration);
